@@ -79,10 +79,10 @@ export default {
 
 <template>
   <chart-box>
-    <template #title>星座轨道统计</template>
+    <template #title>轨道信息</template>
     <template #content>
-      <div class="echarts" ref="orbital">
-      </div>
+<!--      <div class="echarts" ref="orbital">-->
+<!--      </div>-->
     </template>
   </chart-box>
 </template>

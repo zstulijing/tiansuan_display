@@ -6,8 +6,7 @@ export default {
     World,
   },
   data() {
-    // Note: The `now` variable and `settings` object
-    // are defined here to be part of the component's reactive data.
+
     const now = new Date();
     return {
       dataSize: "120.1781",
@@ -114,13 +113,13 @@ export default {
       </div>
     </div>
     <div class="world">
-      <world
-          ref="world"
-          style="width: 100%;height:100%;"
-          :settings="settings"
-          @data="getData"
-          @zoom-event="zoomTo"
-      />
+<!--      <world-->
+<!--        ref="world"-->
+<!--        style="width: 100%;height:100%;"-->
+<!--        :settings="settings"-->
+<!--        @data="getData"-->
+<!--        @zoom-event="zoomTo"-->
+<!--      />-->
     </div>
   </div>
 </template>
@@ -204,7 +203,7 @@ export default {
     .world {
       flex: 4;
       height: 100%;
-
+      box-sizing: border-box;
     }
   }
 </style>

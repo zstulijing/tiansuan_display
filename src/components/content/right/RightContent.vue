@@ -1,9 +1,15 @@
 <script>
 
 import ChartBox from "@/components/content/ChartBox.vue";
+import AntennaChart from "@/components/content/right/AntennaChart.vue";
+import GroundStationChart from "@/components/content/right/GroundStationChart.vue";
+import LogTable from "@/components/content/right/LogChart.vue";
 export default {
   name: 'RightContent',
   components: {
+    LogTable,
+    GroundStationChart,
+    AntennaChart,
     ChartBox,
   }
 }
@@ -12,14 +18,14 @@ export default {
 
 <template>
   <div class="right-content">
-    <div class="chart-part">
-      <chart-box></chart-box>
+    <div class="antenna">
+      <antenna-chart/>
     </div>
     <div class="chart-part">
-      <chart-box></chart-box>
+      <ground-station-chart/>
     </div>
-    <div class="chart-part">
-      <chart-box></chart-box>/
+    <div class="log">
+      <log-table/>
     </div>
   </div>
 </template>
@@ -31,8 +37,16 @@ export default {
   height: 100%;
   flex-direction: column;
   gap: 20px;
-  .chart-part {
+  .antenna {
     flex: 1;
+    width: 100%;
+  }
+  .log {
+    flex: 1;
+    width: 100%;
+  }
+  .chart-part {
+    flex: 2;
     width: 100%;
   }
 }

@@ -193,7 +193,7 @@ export default {
       chosen_index:-1,
       chosen_station:-1,
       chosen_coord:[115, 40],
-      rotate:this.settings.autoRotate,
+      rotate: true,
       base_height: 200,
       timer1:NaN,
       timer2:NaN,
@@ -214,6 +214,18 @@ export default {
   mounted() {
     this.init();
     window.addEventListener('resize', this.handleResize);
+
+    setTimeout(() => {
+      this.chooseOrbit(true, "北邮二号")
+      this.chooseOrbit(true, "北邮三号")
+      this.chooseOrbit(true, "天算9号")
+      this.chooseOrbit(true, "天算11号")
+      this.chooseOrbit(true, "天算15号")
+      this.chooseOrbit(true, "天算19号")
+      this.chooseOrbit(true, "天算23号")
+      this.chooseOrbit(true, "天算25号")
+      this.chooseOrbit(true, "天算27号")
+    },2000)
   },
   destroyed() {
     clearInterval(this.timer1)
@@ -266,7 +278,7 @@ export default {
           baseTexture: this.baseTexture,
           heightTexture: this.heightTexture,
           displacementScale: 0.04,
-          environment: this.stars,
+          environment: null,
           shading: 'realistic',
           realisticMaterial: {
             roughness: 0.9
@@ -487,6 +499,7 @@ export default {
           var point = this.getOrbitPoint(tle, time)
           orbitData.push(point)
         }
+        console.log("****", orbitData);
         this.orbit_data[selected_sate]["show"] = true
         this.orbit_data[selected_sate]["orbit"] = [orbitData]
         this.renewData()
@@ -624,6 +637,7 @@ export default {
           all_orbit_data.push(this.orbit_data[key]["orbit"][0])
         }
       }
+      console.log("===",all_orbit_data)
 
       var show_series = [
         ///////////////////////////地面站（未选中）///////////////////////
@@ -698,26 +712,27 @@ export default {
         },
 
         ///////////////////////////没有被选中的卫星///////////////////////
-        {
-          type: 'lines3D',
-          coordinateSystem: 'globe',
-          polyline: true,
-          effect: {
-            show: true,
-            trailWidth: 2,
-            trailLength: 1,
-            trailOpacity: 1,
-            trailColor: '#00ff00',
-            period: 1, // 速度
-          },
-          lineStyle: {
-            // 航线的视图效果
-            color: '#9ae5fc',
-            width: 0,
-            opacity: 0.6
-          },
-          data: (this.settings.tail)?tail_track:[],
-        },// tail track
+        // {
+        //   type: 'lines3D',
+        //   coordinateSystem: 'globe',
+        //   polyline: true,
+        //   effect: {
+        //     show: true,
+        //     trailWidth: 2,
+        //     trailLength: 1,
+        //     trailOpacity: 1,
+        //     trailColor: '#52c41a',
+        //     period: 1, // 速度
+        //   },
+        //   lineStyle: {
+        //     // 航线的视图效果
+        //     color: '#007bff',
+        //     width: 0,
+        //     opacity: 0.6
+        //   },
+        //   data: (this.settings.tail)?tail_track:[],
+        // },
+        // tail track
         {
           type: 'scatter3D',
           coordinateSystem: 'globe',
@@ -737,11 +752,11 @@ export default {
           label: {
             show: true,
             position: "top",
-            distance: -40,
+            distance: -20,
             formatter: () => { return '2' },
             textStyle: {
               color: "transparent",
-              padding: [15, 25],
+              padding: [10, 20],
               backgroundColor: {
                 image: '/satellite1.jpg'
               }
@@ -772,11 +787,11 @@ export default {
           label: {
             show: true,
             position: "top",
-            distance: -40,
+            distance: -20,
             formatter: () => { return '2' },
             textStyle: {
               color: "transparent",
-              padding: [15, 25],
+              padding: [10, 20],
               backgroundColor: {
                 image: '/border_satellite.jpg'
               }
@@ -800,11 +815,11 @@ export default {
           polyline: true,
           lineStyle: {
             // 航线的视图效果
-            color: '#9ae5fc',
+            color: '#007bff',
             width: 2,
             opacity: 0.6
           },
-          data: (this.chosen_sate != "")?all_orbit_data:[],
+          data: all_orbit_data,
         },// orbit
         {
           type: 'lines3D',

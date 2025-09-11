@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 import App from './App'
 
-import * as filters from './filters' // global filters
 import * as echarts from 'echarts';
 import './style.css'
 
@@ -14,10 +13,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-// register global utility filters
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
-})
 
 Vue.config.productionTip = false
 

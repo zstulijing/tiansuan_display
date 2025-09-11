@@ -188,7 +188,7 @@ export default {
 
 <template>
   <chart-box>
-    <template #title>CPU/内存占用记录</template>
+    <template #title><span class="satellite-name">北邮二号</span> CPU/内存占用记录</template>
     <template #content>
       <div class="echarts" ref="utilization">
       </div>
@@ -197,5 +197,7 @@ export default {
 </template>
 
 <style scoped lang="less">
-
+  .satellite-name {
+    font-weight: bold;
+  }
 </style>

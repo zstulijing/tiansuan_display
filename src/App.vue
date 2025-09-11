@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="satellite-dashboard">
-<!--    <Particle/>-->
+    <Particle/>
     <div class="header">
       <dashboard-header/>
     </div>
@@ -14,14 +14,14 @@
 
 <script>
 import DashboardHeader from "@/components/header/DashboardHeader.vue";
-// import Particle from "@/components/background/Particle.vue";
+import Particle from "@/components/background/Particle.vue";
 import DashboardContent from "@/components/content/DashboardContent.vue";
 
 export default {
   name: 'App',
   components: {
     DashboardHeader,
-    // Particle,
+    Particle,
     DashboardContent,
   }
 }
@@ -33,6 +33,7 @@ export default {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  backgroud: rgba(0, 0, 0, 0.5);
   background-image: url('~@/assets/images/background/background.jpg');
   background-repeat: no-repeat;
   background-position: center center;
