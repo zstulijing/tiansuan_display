@@ -9,7 +9,7 @@ export default {
 
     const now = new Date();
     return {
-      dataSize: "120.1781",
+      dataSize: "220.1781",
       runTime: this.getMin(),
       now: now,
       settings: {
@@ -52,7 +52,7 @@ export default {
 
     this.timer2 = setInterval(() => {
       this.runTime = this.getMin();
-    }, 1000 * 60 * 5);
+    }, 1000 * 2);
   },
   beforeDestroy() {
     if (this.timer1) {
@@ -69,7 +69,7 @@ export default {
       const now = new Date();
       const diffInMilliseconds = now - startDate;
       const millisecondsInMinute = 1000 * 60 * 60;
-      return (diffInMilliseconds / millisecondsInMinute).toFixed(2);
+      return (diffInMilliseconds / millisecondsInMinute).toFixed(4);
     },
     getData(data) {
       this.data = data;

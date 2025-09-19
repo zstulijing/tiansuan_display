@@ -39,7 +39,7 @@ export default {
   animation-name: breathe;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 @keyframes breathe {

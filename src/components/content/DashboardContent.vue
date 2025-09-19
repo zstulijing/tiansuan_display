@@ -43,6 +43,9 @@ export default {
     }
     .left, .center, .right {
       height: 100%;
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
     }
   }
 </style>

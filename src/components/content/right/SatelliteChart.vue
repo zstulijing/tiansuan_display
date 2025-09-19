@@ -6,16 +6,6 @@ export default {
   },
   data() {
     return {
-      // satellites: [
-      //   { id: 1, name: "天仪33卫星", temp: 22, speed: 7.5 },
-      //   { id: 2, name: "丽泽一号", temp: 18, speed: 7.4 },
-      //   { id: 3, name: "宝酝号", temp: 25, speed: 7.6 },
-      //   { id: 4, name: "创星雷神号", temp: 25, speed: 7.4 },
-      //   { id: 5, name: "元光号", temp: 25, speed: 7.4 },
-      //   { id: 6, name: "北邮一号", temp: 25, speed: 7.4 },
-      //   { id: 7, name: "北邮二号", temp: 25, speed: 7.4 },
-      //   { id: 8, name: "北邮三号", temp: 25, speed: 7.4 },
-      // ],
       satellites: [
         "天仪33卫星",
         "丽泽一号",

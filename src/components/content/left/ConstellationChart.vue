@@ -100,10 +100,10 @@ export default {
 </script>
 <template>
   <chart-box>
-    <template #title>网络信息</template>
+    <template #title></template>
     <template #content>
-<!--      <div class="echarts" ref="constellation">-->
-<!--      </div>-->
+      <div class="echarts" ref="constellation">
+      </div>
     </template>
   </chart-box>
 </template>
