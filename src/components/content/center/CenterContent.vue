@@ -92,34 +92,34 @@ export default {
 
 <template>
   <div class="center-content">
-    <div class="statistics-box">
-      <div class="statistics">
-        <div class="left">
-          <div class="title">
-            <p>在轨运行时间(Hour)</p>
-          </div>
-          <div class="data">
-            <p>{{runTime}}</p>
-          </div>
-        </div>
-        <div class="right">
-          <div class="title">
-            <p>数据传输总量(GB)</p>
-          </div>
-          <div class="data">
-            <p>{{dataSize}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<!--    <div class="statistics-box">-->
+<!--      <div class="statistics">-->
+<!--        <div class="left">-->
+<!--          <div class="title">-->
+<!--            <p>在轨运行时间(Hour)</p>-->
+<!--          </div>-->
+<!--          <div class="data">-->
+<!--            <p>{{runTime}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="right">-->
+<!--          <div class="title">-->
+<!--            <p>数据传输总量(GB)</p>-->
+<!--          </div>-->
+<!--          <div class="data">-->
+<!--            <p>{{dataSize}}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="world">
-<!--      <world-->
-<!--        ref="world"-->
-<!--        style="width: 100%;height:100%;"-->
-<!--        :settings="settings"-->
-<!--        @data="getData"-->
-<!--        @zoom-event="zoomTo"-->
-<!--      />-->
+      <world
+        ref="world"
+        style="width: 100%;height:100%;"
+        :settings="settings"
+        @data="getData"
+        @zoom-event="zoomTo"
+      />
     </div>
   </div>
 </template>

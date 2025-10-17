@@ -322,20 +322,7 @@ export default {
       this.myChart.setOption(option)
       this.renewData()
       this.setSateToCenter()
-      let that = this
-      this.myChart.on('click', function (params) {
-        if(params.data[3]=="北京大数据分析"){
-          // that.zoomSpace(params.data[0], params.data[1])
-          that.$emit('zoom-event', {name:"北京大数据分析",coord:[params.data[0], params.data[1]]});
-        }
-        else if(params.data[3]=="天算华东站"){
-          // that.zoomSpace(params.data[0], params.data[1])
-          that.$emit('zoom-event', {name:"天算华东站",coord:[params.data[0], params.data[1]]});
-        }
-        else{
-          that.setSateToCenter([params.data[0], params.data[1]])
-        }
-      });
+
       this.timer1 = setInterval(() => {
         this.renewData()
       }, 15000)

@@ -2,12 +2,14 @@
 import AntennaChart from "@/components/content/right/AntennaChart.vue";
 import NetworkChart from "@/components/content/right/NetworkChart.vue";
 import TaskChart from "@/components/content/right/TaskChart.vue";
+import VideoChart from "@/components/content/right/VideoChart.vue";
 export default {
   name: 'RightContent',
   components: {
     TaskChart,
     AntennaChart,
     NetworkChart,
+    VideoChart
   }
 }
 
@@ -19,11 +21,13 @@ export default {
       <antenna-chart/>
     </div>
     <div class="task chart-part">
-      <task-chart/>
+      <video-chart/>
     </div>
     <div class="network chart-part">
-      <network-chart/>
+<!--      <network-chart/>-->
+      <video-chart/>
     </div>
+
   </div>
 </template>
 
@@ -44,7 +48,7 @@ export default {
     width: 100%;
   }
   .task {
-    flex: 3;
+    flex: 2;
     width: 100%;
   }
   .network {
