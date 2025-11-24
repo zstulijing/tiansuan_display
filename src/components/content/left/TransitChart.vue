@@ -11,7 +11,7 @@ export default {
     return {
       lastTaskNum: 800,
       satellites: [
-        "天仪33卫星",
+        "TY33卫星",
         "丽泽一号",
         "宝酝号",
         "创星雷神号",
@@ -42,7 +42,7 @@ export default {
         if (countDown < -duration) {
           this.lastTaskNum = this.lastTaskNum + Math.floor(Math.random() * 100)
           this.allData[i].groundStations = this.getRandomElement(this.groundStations)
-          this.allData[i].countDown = Math.floor(Math.random() * 1000)
+          this.allData[i].countDown = Math.floor(10 * 60 + Math.random() * 20 * 60),
           this.allData[i].taskNumber = this.lastTaskNum
         } else {
           this.allData[i].countDown = countDown - 1
@@ -65,7 +65,7 @@ export default {
         id: i,
         name: this.satellites[i],
         groundStation: this.getRandomElement(this.groundStations),
-        countDown: Math.floor(Math.random() * 1000),
+        countDown: Math.floor(10 * 60 + Math.random() * 30 * 60),
         taskNumber: this.lastTaskNum,
         duration: Math.floor( 50 + Math.random() * 50)
       })
@@ -93,7 +93,7 @@ export default {
             <th>卫星</th>
             <th>下次过境</th>
             <th>过境倒计时</th>
-            <th>任务编号</th>
+<!--            <th>任务编号</th>-->
           </tr>
           </thead>
           <!-- 注意 Vue2 里要用 <transition-group tag="tbody"> -->
@@ -108,7 +108,7 @@ export default {
               </td>
               <td>{{ sat.groundStation }}</td>
               <td>{{ sat.countDown < 0 ? '正在过境' : sat.countDown }}</td>
-              <td>{{ sat.taskNumber }}</td>
+<!--              <td>{{ sat.taskNumber }}</td>-->
             </tr>
           </transition-group>
         </table>

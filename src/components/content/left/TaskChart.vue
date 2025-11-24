@@ -2,6 +2,7 @@
   import ChartBox from "@/components/content/ChartBox.vue";
   import CountDown from "@/components/content/CountDown.vue";
   const target = [ "电源", "姿轨控", "热控", "通信", "载荷" ]
+  const type = [ "图像识别", "推理", "遥感", "姿轨控" ]
   export default {
     name: 'TaskChart',
     components: {CountDown, ChartBox},
@@ -10,7 +11,7 @@
         lastTaskNum: 800,
         tableData: [],
         satellites: [
-          "天仪33卫星",
+          "TY33卫星",
           "丽泽一号",
           "宝酝号",
           "创星雷神号",
@@ -20,12 +21,12 @@
           "北邮三号"
         ],
         current: {
-          type: '遥测',
-          entrance: new Date().toLocaleTimeString(),
-          azimuth: 51,
-          target: this.getRandomElement(target),
-          departure: new Date(new Date().getTime() + Math.floor(Math.random() * 1000 * 60 * 20)).toLocaleTimeString(),
-          elevation: 67
+          type: this.getRandomElement(type),
+          altitude: (500 + (Math.random() - 0.5) * 20).toFixed(2),
+          status: '正常',
+          satellite: '北邮二号',
+          num: 800,
+          duration: (20 + (Math.random() - 0.5) * 10).toFixed(2),
         },
 
       }
@@ -82,11 +83,11 @@
           // 删除首个，新增一个
           this.current = {
             type: first.type,
-            entrance: new Date(first.endTime).toLocaleTimeString(),
-            azimuth: Math.floor(50 + (Math.random() - 0.5) * 40),
-            target: first.type === "遥测" ? this.getRandomElement(target) : '-',
-            departure: new Date(first.endTime + Math.floor(Math.random() * 1000 * 60 * 20)).toLocaleTimeString(),
-            elevation: Math.floor(70 + (Math.random() - 0.5) * 20)
+            altitude: (500 + (Math.random() - 0.5) * 20).toFixed(2),
+            status: '正常',
+            satellite: first.satellite,
+            num: first.num,
+            duration: (20 + (Math.random() - 0.5) * 10).toFixed(2),
           }
           this.lastTaskNum = this.lastTaskNum + Math.floor(Math.random() * 100)
           this.tableData.splice(0, 1)
@@ -99,7 +100,7 @@
           this.tableData.push({
             id: last.id + 1,
             num: this.lastTaskNum,
-            type: Math.random() > 0.5 ? "遥测" : "数传" ,
+            type: this.getRandomElement(type),
             satellite: this.getRandomElement(this.satellites),
             startTime,
             endTime,
@@ -124,7 +125,7 @@
         this.tableData.push({
           id: i,
           num: this.lastTaskNum,
-          type: Math.random() > 0.5 ? "遥测" : "数传" ,
+          type: this.getRandomElement(type),
           satellite: this.getRandomElement(this.satellites),
           startTime,
           endTime,
@@ -148,7 +149,7 @@
 
 <template>
   <chart-box>
-    <template #title>任务计划</template>
+    <template #title>任务信息</template>
     <template #content>
       <div class="task">
         <div class="task-current">
@@ -158,19 +159,19 @@
           <div class="task-current__content">
             <div class="task-current__content__row">
               <div class="task-current__content__col">任务类型: {{current.type}}</div>
-              <div class="task-current__content__col">进站时间: {{current.entrance}}</div>
-              <div class="task-current__content__col">进站方位角: {{current.azimuth}}°</div>
+              <div class="task-current__content__col">执行卫星: {{current.satellite}}</div>
+              <div class="task-current__content__col">任务序号: {{current.num}}</div>
             </div>
             <div class="task-current__content__row">
-              <div class="task-current__content__col">目标名称: {{current.target}}</div>
-              <div class="task-current__content__col">出站时间: {{current.departure}}</div>
-              <div class="task-current__content__col">最高仰角: {{current.elevation}}°</div>
+              <div class="task-current__content__col">高度: {{current.altitude}}km</div>
+              <div class="task-current__content__col">执行状态: {{current.status}}</div>
+              <div class="task-current__content__col">执行时长: {{current.duration}}min</div>
             </div>
           </div>
         </div>
         <div class="task-list">
           <div class="task-list__title">
-            <p>任务列表: </p>
+            <p>任务计划: </p>
           </div>
           <div class="task-list__table">
             <table>

@@ -300,7 +300,7 @@ export default {
           globeRadius: 120,
           globeOuterRadius: 150,
           viewControl: {
-            distance: 240,
+            distance: 280,
             autoRotate: this.rotate
           },
           layers: [
@@ -486,7 +486,6 @@ export default {
           var point = this.getOrbitPoint(tle, time)
           orbitData.push(point)
         }
-        console.log("****", orbitData);
         this.orbit_data[selected_sate]["show"] = true
         this.orbit_data[selected_sate]["orbit"] = [orbitData]
         this.renewData()
@@ -624,7 +623,6 @@ export default {
           all_orbit_data.push(this.orbit_data[key]["orbit"][0])
         }
       }
-      console.log("===",all_orbit_data)
 
       var show_series = [
         ///////////////////////////地面站（未选中）///////////////////////

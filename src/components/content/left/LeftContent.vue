@@ -2,13 +2,12 @@
 import UtilizationChart from "@/components/content/left/UtilizationChart.vue";
 import ConstellationChart from "@/components/content/left/ConstellationChart.vue";
 import TransitChart from "@/components/content/left/TransitChart.vue";
-import VideoChart from "@/components/content/left/VideoChart.vue";
 import TaskChart from "@/components/content/left/TaskChart.vue";
+
 export default {
   name: "LeftContent",
   components: {
     TaskChart,
-    VideoChart,
     UtilizationChart,
     ConstellationChart,
     TransitChart,

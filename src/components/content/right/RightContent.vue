@@ -3,9 +3,11 @@ import AntennaChart from "@/components/content/right/AntennaChart.vue";
 import NetworkChart from "@/components/content/right/NetworkChart.vue";
 import TaskChart from "@/components/content/right/TaskChart.vue";
 import VideoChart from "@/components/content/right/VideoChart.vue";
+import GroundStationChart from "@/components/content/right/GroundStationChart.vue";
 export default {
   name: 'RightContent',
   components: {
+    GroundStationChart,
     TaskChart,
     AntennaChart,
     NetworkChart,
@@ -17,16 +19,15 @@ export default {
 
 <template>
   <div class="right-content">
-    <div class="antenna chart-part">
-      <antenna-chart/>
+    <div class="ground-station chart-part">
+      <ground-station-chart/>
     </div>
-    <div class="task chart-part">
+    <div class="video chart-part">
       <video-chart/>
     </div>
-    <div class="network chart-part">
-<!--      <network-chart/>-->
-      <video-chart/>
-    </div>
+<!--    <div class="video chart-part">-->
+<!--      <video-chart/>-->
+<!--    </div>-->
 
   </div>
 </template>
@@ -43,16 +44,17 @@ export default {
     min-width: 0;
     overflow: hidden;
   }
-  .antenna {
-    flex: 1;
+  .ground-station {
+    flex: 3;
     width: 100%;
   }
-  .task {
+  .video {
     flex: 2;
     width: 100%;
+    overflow: hidden;
   }
   .network {
-    flex: 2;
+    flex: 1;
     width: 100%;
   }
 }

@@ -101,6 +101,7 @@ export default {
       timer_2:null,
       key_id:null,
       accessToken:null,
+      url: null,
     }
   },
   mounted() {
@@ -117,7 +118,7 @@ export default {
 
       var data = qs.stringify({
         appKey: '1ae1753d81634e99bb0555424b665e17',
-        appSecret: 'c7f79c73008fe1e42d5ef345e5d36d62'
+        appSecret: '93ea2fb9b362d9619750776a879b9876'
       });
       var config = {
         method: 'post',
@@ -132,11 +133,30 @@ export default {
       axios(config)
           .then((response) => {
             this.accessToken = response.data.data.accessToken;
-            this.createVideo()
+            console.log("***********", this.accessToken);
+            this.getUrl()
           })
           .catch((error) => {
             console.log(error);
           });
+    },
+    getUrl() {
+      axios({
+        method: 'POST',
+        url: 'https://open.ys7.com/api/lapp/v2/live/address/get',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          accessToken: this.accessToken,
+          deviceSerial: 'BA3307138'
+        }
+      }).then((response) => {
+        this.url = response.data.data.url;
+        this.createVideo();
+      }).catch((error) => {
+        console.error(error);
+      });
     },
     createVideo(){
       const myDiv = document.getElementById('videoWindow');
@@ -145,7 +165,7 @@ export default {
       var player = new EZUIKit.EZUIKitPlayer({
         id: 'video-container', // 视频容器ID
         accessToken: this.accessToken,
-        url: 'ezopen://open.ys7.com/BA3307138/1.live',
+        url: this.url,
         width: width - 50,
         height: parseInt((width - 50)*5/8),
         audio: false,

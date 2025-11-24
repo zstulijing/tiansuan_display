@@ -13,7 +13,7 @@ export default {
           name: "黑河站",
           position: "127.53, 50.22",
           altitude: 500,
-          antenna: "Cross Yagi(UHF)",
+          antenna: "Cross Yagi",
           rate: 85,
           count: 18520
         },
@@ -22,7 +22,7 @@ export default {
           name: "天算华东站",
           position: "121.39, 37.52",
           altitude: 47.8,
-          antenna: "Cross Yagi(UHF)",
+          antenna: "Cross Yagi",
           rate: 82,
           count: 9627
         },
@@ -31,7 +31,7 @@ export default {
           name: "长沙站",
           position: "112.59, 28.12",
           altitude: 58,
-          antenna: "Cross Yagi(UHF)",
+          antenna: "Cross Yagi",
           rate: 79,
           count: 3486
         },
@@ -40,7 +40,7 @@ export default {
           name: "天算华南站",
           position: "109.45, 24.18",
           altitude: 150,
-          antenna: "Cross Yagi(UHF)",
+          antenna: "Cross Yagi",
           rate: 76,
           count: 14237
         },
@@ -49,28 +49,28 @@ export default {
           name: "酒泉站",
           position: "98.5, 39.71",
           altitude: 1350,
-          antenna: "Cross Yagi(UHF)",
+          antenna: "Cross Yagi",
           rate: 89,
           count: 7546
         },
-        // {
-        //   id: 5,
-        //   name: "库尔勒站",
-        //   position: "86.17, 41.72",
-        //   altitude: 934,
-        //   antenna: "Cross Yagi(UHF)",
-        //   rate: 88,
-        //   count: 15352
-        // },
-        // {
-        //   id: 6,
-        //   name: "达坂城站",
-        //   position: "88.31, 43.36",
-        //   altitude: 1128,
-        //   antenna: "Cross Yagi(UHF)",
-        //   rate: 86,
-        //   count: 8520
-        // },
+        {
+          id: 5,
+          name: "库尔勒站",
+          position: "86.17, 41.72",
+          altitude: 934,
+          antenna: "Cross Yagi",
+          rate: 88,
+          count: 15352
+        },
+        {
+          id: 6,
+          name: "达坂城站",
+          position: "88.31, 43.36",
+          altitude: 1128,
+          antenna: "Cross Yagi",
+          rate: 86,
+          count: 8520
+        },
       ]
     };
   },
@@ -84,62 +84,70 @@ export default {
             count: groundStation.count + Math.floor(Math.random() * 5)
           }))
           .sort((a, b) => a.duration - b.duration)
-          .slice(0, 5);
     }
   },
   mounted() {
 
-    setInterval(() => {
-      this.shuffleData()
-    }, 2000)
+    // setInterval(() => {
+    //   this.shuffleData()
+    // }, 2000)
   }
 }
 </script>
 
 <template>
   <chart-box>
-    <template #title>任务计划</template>
+    <template #title>地面站信息</template>
     <template #content>
-<!--      <div class="table-wrapper">-->
-<!--        <table>-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th>地面站</th>-->
-<!--            <th>经纬度</th>-->
-<!--            <th>成功率</th>-->
-<!--            <th>观测次数</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          &lt;!&ndash; 注意 Vue2 里要用 <transition-group tag="tbody"> &ndash;&gt;-->
-<!--          <transition-group tag="tbody" name="list">-->
-<!--            <tr v-for="sat in tableData" :key="sat.id">-->
-<!--              <td>{{ sat.name }}</td>-->
-<!--              <td>{{ sat.position }}</td>-->
-<!--              <td>{{ sat.rate }}%</td>-->
-<!--              <td>{{ sat.count }}</td>-->
-<!--            </tr>-->
-<!--          </transition-group>-->
-<!--        </table>-->
-<!--      </div>-->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+          <tr>
+            <th>地面站</th>
+            <th>经纬度</th>
+            <th>海拔</th>
+            <th>历史观测次数</th>
+          </tr>
+          </thead>
+          <!-- 注意 Vue2 里要用 <transition-group tag="tbody"> -->
+          <transition-group tag="tbody" name="list">
+            <tr v-for="sat in tableData" :key="sat.id">
+              <td>{{ sat.name }}</td>
+              <td>{{ sat.position }}</td>
+              <td>{{ sat.altitude }}m</td>
+              <td>{{ sat.count }}</td>
+            </tr>
+          </transition-group>
+        </table>
+      </div>
     </template>
   </chart-box>
 </template>
 
 <style scoped lang="less">
 .table-wrapper {
-  margin-top: 20px;
+  margin-top: 4px;
+  height: 100%;
   color: #ffffffAA;
+  padding: 16px 0;
+  box-sizing: border-box;
 }
 
 table {
+
   width: 100%;
+  height: 100%;
+
   border-collapse: collapse;
 }
-
+tr {
+  height: calc(100% / 8);
+}
 th, td {
   padding: 8px 12px;
   text-align: center;
   border-bottom: 1px solid #2a3d5c;
+  vertical-align: middle;
 
 }
 th {
