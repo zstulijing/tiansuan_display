@@ -10,6 +10,15 @@ export default {
     LeftContent,
     CenterContent,
     RightContent,
+  },
+  methods: {
+    changeSate(satelliteName) {
+      this.$refs.centerContent.changeSate(satelliteName)
+    },
+    getData(data) {
+      this.$refs.leftContent.updateData(data);
+    }
+
   }
 }
 </script>
@@ -17,10 +26,10 @@ export default {
 <template>
   <div class="dashboard-content">
     <div class="left">
-      <left-content/>
+      <left-content ref="leftContent" @changeSate="changeSate"/>
     </div>
     <div class="center">
-      <center-content/>
+      <center-content ref="centerContent" @data="getData"/>
     </div>
     <div class="right">
       <right-content/>

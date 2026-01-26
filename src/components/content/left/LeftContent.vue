@@ -3,6 +3,7 @@ import UtilizationChart from "@/components/content/left/UtilizationChart.vue";
 import ConstellationChart from "@/components/content/left/ConstellationChart.vue";
 import TransitChart from "@/components/content/left/TransitChart.vue";
 import TaskChart from "@/components/content/left/TaskChart.vue";
+import SatelliteChart from "@/components/content/left/SatelliteChart.vue";
 
 export default {
   name: "LeftContent",
@@ -11,12 +12,26 @@ export default {
     UtilizationChart,
     ConstellationChart,
     TransitChart,
+    SatelliteChart
+  },
+  methods: {
+    changeSate(satelliteName) {
+      this.$emit("changeSate", satelliteName);
+    },
+    updateData(data) {
+      this.$refs.satelliteChart.updateData(data);
+    }
+
   }
 }
 </script>
 
 <template>
   <div class="left-content">
+
+    <div class="chart-part satellite-chart">
+      <satellite-chart ref="satelliteChart" @changeSate="changeSate" />
+    </div>
 
     <div class="chart-part task-chart">
       <task-chart/>
@@ -34,11 +49,12 @@ export default {
     height: 100%;
     flex-direction: column;
     gap: 20px;
+
     .task-chart {
-      flex: 2;
+      flex: 3;
     }
     .transit-chart {
-      flex: 1;
+      flex: 2;
     }
     .chart-part {
       overflow: hidden;

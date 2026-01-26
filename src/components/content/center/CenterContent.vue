@@ -41,7 +41,6 @@ export default {
       timer1: null,
       timer2: null,
       showBigData: false,
-      data: null, // If `this.data` is used in the template, it must be declared here
     };
   },
   mounted() {
@@ -72,7 +71,7 @@ export default {
       return (diffInMilliseconds / millisecondsInMinute).toFixed(4);
     },
     getData(data) {
-      this.data = data;
+      this.$emit('data', data)
     },
     zoomTo(data) {
       this.$refs.world.zoomSpace(data.coord[0], data.coord[1]);
@@ -82,11 +81,15 @@ export default {
         }, 300);
       } else if (data.name === "天算华东站") {
         this.timer2 = setTimeout(() => {
-          this.$router.push({ name: 'monitor' });
+          this.$router.push({name: 'monitor'});
         }, 300);
       }
     },
-  },
+    changeSate(satelliteName) {
+      this.$refs.world.chooseSate(satelliteName)
+    }
+
+  }
 };
 </script>
 

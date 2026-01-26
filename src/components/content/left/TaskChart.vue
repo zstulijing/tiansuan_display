@@ -149,30 +149,30 @@
 
 <template>
   <chart-box>
-    <template #title>任务信息</template>
+    <template #title>任务计划</template>
     <template #content>
       <div class="task">
-        <div class="task-current">
-          <div class="task-current__title">
-            <p>当前任务: </p>
-          </div>
-          <div class="task-current__content">
-            <div class="task-current__content__row">
-              <div class="task-current__content__col">任务类型: {{current.type}}</div>
-              <div class="task-current__content__col">执行卫星: {{current.satellite}}</div>
-              <div class="task-current__content__col">任务序号: {{current.num}}</div>
-            </div>
-            <div class="task-current__content__row">
-              <div class="task-current__content__col">高度: {{current.altitude}}km</div>
-              <div class="task-current__content__col">执行状态: {{current.status}}</div>
-              <div class="task-current__content__col">执行时长: {{current.duration}}min</div>
-            </div>
-          </div>
-        </div>
+<!--        <div class="task-current">-->
+<!--          <div class="task-current__title">-->
+<!--            <p>当前任务: </p>-->
+<!--          </div>-->
+<!--          <div class="task-current__content">-->
+<!--            <div class="task-current__content__row">-->
+<!--              <div class="task-current__content__col">任务类型: {{current.type}}</div>-->
+<!--              <div class="task-current__content__col">执行卫星: {{current.satellite}}</div>-->
+<!--              <div class="task-current__content__col">任务序号: {{current.num}}</div>-->
+<!--            </div>-->
+<!--            <div class="task-current__content__row">-->
+<!--              <div class="task-current__content__col">高度: {{current.altitude}}km</div>-->
+<!--              <div class="task-current__content__col">执行状态: {{current.status}}</div>-->
+<!--              <div class="task-current__content__col">执行时长: {{current.duration}}min</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="task-list">
-          <div class="task-list__title">
-            <p>任务计划: </p>
-          </div>
+<!--          <div class="task-list__title">-->
+<!--            <p>任务计划: </p>-->
+<!--          </div>-->
           <div class="task-list__table">
             <table>
               <thead>

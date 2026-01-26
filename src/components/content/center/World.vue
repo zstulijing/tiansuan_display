@@ -214,8 +214,9 @@ export default {
   mounted() {
     this.init();
     window.addEventListener('resize', this.handleResize);
-
+    this.chosen_sate = "北邮二号"
     setTimeout(() => {
+
       this.chooseOrbit(true, "北邮二号")
       this.chooseOrbit(true, "北邮三号")
       this.chooseOrbit(true, "天算9号")
@@ -566,8 +567,9 @@ export default {
         var data = {}
         var tle = this.sate_TLE[this.chosen_sate]
         var place = this.getOrbitPoint(tle, time)
-        data.time = time.toString()
-        data.utc_time = time.toUTCString()
+        data.name = this.chosen_sate
+        data.timeLocal = time.toString()
+        data.timeUTC = time.toUTCString()
         data.longitude = place[0].toFixed(4)
         data.latitude = place[1].toFixed(4)
         data.altitude = place[2].toFixed(1)
