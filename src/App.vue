@@ -48,6 +48,12 @@
           <span slot="title">卫星状态分析</span>
         </el-menu-item >
 
+        <el-menu-item index="/home/agent">
+          <i class="el-icon-chat-round"></i>
+          <span slot="title">卫星运维助手</span>
+        </el-menu-item >
+
+
         <el-menu-item index="/home/upload">
           <i class="el-icon-folder-opened"></i>
           <span slot="title">文件传输模块</span>

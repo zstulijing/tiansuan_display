@@ -42,7 +42,7 @@ export default {
       <img v-else-if="isFullScreen" src="@/assets/images/icon/fullscreen-exit.png" alt="fullscreen-exit">
     </div>
     <div class="center">
-      <h1>天算星座</h1>
+      <h1>天算星座 · 太空算力的先行者与实践者</h1>
       <div class="underline"></div>
     </div>
     <div class="right">

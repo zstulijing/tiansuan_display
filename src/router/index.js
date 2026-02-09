@@ -13,6 +13,7 @@ import Analyze from "@/pages/analyze/Analyze.vue"
 import AppCtl from "@/pages/app-ctl/AppCtl.vue"
 import Monitor from "@/pages/monitor/Monitor.vue";
 import Upload from "@/pages/upload/Upload.vue";
+import Agent from "@/pages/agent/agent.vue";
 
 // 定义路由表
 const routes = [
@@ -61,6 +62,11 @@ const routes = [
         name: 'AppCtl',
         component: AppCtl
       },
+      {
+        path: 'agent',
+        name: 'Agent',
+        component: Agent
+      }
     ]
   },
   {
