@@ -64,9 +64,11 @@ export default {
         }
       }).then((response) => {
         this.url = response.data.data.url;
-        this.createVideo();
       }).catch((error) => {
+        this.url = 'ezopen://open.ys7.com/BA3307138/1.live'
         console.error(error);
+      }).finally(() => {
+        this.createVideo();
       });
     },
     createVideo(){

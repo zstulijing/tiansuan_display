@@ -14,9 +14,9 @@ export default {
         name: '北邮二号',
         timeLocal: now.toString(),
         timeUTC: now.toUTCString(),
-        latitude: "/",
-        longitude: "/",
-        altitude: "/",
+        latitude: "0",
+        longitude: "0",
+        altitude: "0",
       },
       satelliteList: [
         "天仪33卫星",
@@ -90,8 +90,8 @@ export default {
               <option v-for="(item, index) in satelliteList" :key="index">{{item}}</option>
             </select>
           </div>
-          <div class="task-current__content__col">纬度: {{satellite.latitude}}°</div>
-          <div class="task-current__content__col">经度: {{satellite.longitude}}°</div>
+          <div class="task-current__content__col">纬度: {{parseFloat(satellite.latitude).toFixed(3)}}°</div>
+          <div class="task-current__content__col">经度: {{parseFloat(satellite.longitude).toFixed(3)}}°</div>
         </div>
         <div class="task-current__content__row">
           <div class="task-current__content__col x3">UTC时间: {{satellite.timeUTC}}</div>
